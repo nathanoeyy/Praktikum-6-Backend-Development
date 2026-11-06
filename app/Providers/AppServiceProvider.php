@@ -22,5 +22,10 @@ class AppServiceProvider extends ServiceProvider
     {
         // Namespace View untuk modul Library
         View::addNamespace('Library', base_path('app/Modules/Library/Views'));
+
+        // Load Migrations dari setiap Modul secara otomatis
+        $this->loadMigrationsFrom(app_path('Modules/Catalog/Migrations'));
+        $this->loadMigrationsFrom(app_path('Modules/Membership/Migrations'));
+        $this->loadMigrationsFrom(app_path('Modules/Circulation/Migrations'));
     }
 }
